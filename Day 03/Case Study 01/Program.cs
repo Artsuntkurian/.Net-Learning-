@@ -4,11 +4,11 @@ class Program
 {
     static void Main()
     {
-        int X = int.Parse(Console.ReadLine());
-        int Y = int.Parse(Console.ReadLine());
-        int N1 = int.Parse(Console.ReadLine());
-        int N2 = int.Parse(Console.ReadLine());
-        int M = int.Parse(Console.ReadLine());
+        int X = ReadInt();
+        int Y = ReadInt();
+        int N1 = ReadInt();
+        int N2 = ReadInt();
+        int M = ReadInt();
 
         for (int a = N1; a >= 0; a--) // max Type-1 first
         {
@@ -27,5 +27,13 @@ class Program
         }
         
         Console.WriteLine("Invalid");
+    }
+
+    static int ReadInt()
+    {
+        string? input = Console.ReadLine();
+        if (input == null)
+            throw new InvalidOperationException("Expected integer input.");
+        return int.Parse(input);
     }
 }

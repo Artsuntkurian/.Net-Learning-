@@ -6,8 +6,11 @@ class Program
 {
     static void Main()
     {
-        string word1 = Console.ReadLine();
-        string word2 = Console.ReadLine();
+        string? word1 = Console.ReadLine();
+        string? word2 = Console.ReadLine();
+
+        if (word1 == null || word2 == null)
+            return;
 
         // Set of consonants from word2, lowercase for case-insensitive compare
         HashSet<char> consInWord2 = new HashSet<char>();
@@ -24,9 +27,9 @@ class Program
         {
             char lower = char.ToLower(c);
             bool isVowel = vowels.Contains(lower);
-            bool isCommonConsonant =!isVowel && consInWord2.Contains(lower);
+            bool isCommonConsonant = !isVowel && consInWord2.Contains(lower);
 
-            if (isVowel ||!isCommonConsonant) // keep vowel or non-common consonant
+            if (isVowel || !isCommonConsonant) // keep vowel or non-common consonant
                 sb.Append(c);
         }
 

@@ -4,10 +4,10 @@ class Program
 {
     static void Main()
     {
-        int n = int.Parse(Console.ReadLine());
-        string s = Console.ReadLine();
+        int n = ReadInt();
+        string? s = Console.ReadLine();
 
-        if (n > s.Length)
+        if (s == null || n > s.Length)
         {
             Console.WriteLine("Invalid");
             return;
@@ -49,5 +49,13 @@ class Program
         }
 
         Console.WriteLine("No");
+    }
+
+    static int ReadInt()
+    {
+        string? input = Console.ReadLine();
+        if (input == null)
+            throw new InvalidOperationException("Expected integer input.");
+        return int.Parse(input);
     }
 }

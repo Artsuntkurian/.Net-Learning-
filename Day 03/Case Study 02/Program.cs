@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-        int N = int.Parse(Console.ReadLine());
+        int N = ReadInt();
         Console.WriteLine(MinOps(10, N));
     }
 
@@ -38,5 +38,13 @@ class Program
             }
         }
         return -1; // should not happen for given constraints
+    }
+
+    static int ReadInt()
+    {
+        string? input = Console.ReadLine();
+        if (input == null)
+            throw new InvalidOperationException("Expected integer input.");
+        return int.Parse(input);
     }
 }
